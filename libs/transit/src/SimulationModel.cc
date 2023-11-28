@@ -36,6 +36,10 @@ IEntity* SimulationModel::createEntity(JsonObject& entity) {
     myNewEntity->linkModel(this);
     controller.addEntity(*myNewEntity);
     entities[myNewEntity->getId()] = myNewEntity;
+    std::string type = entity["type"];
+    if (type == "charge_station") {
+      chargeStations.push_back((ChargeStation*)myNewEntity);
+    }
   }
 
   return myNewEntity;
