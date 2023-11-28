@@ -29,7 +29,13 @@ class ChargeStation : public IEntity {
    * or if the station was filled but update was called by the drone currently
    * occupying the station, false otherwise, since no update is possible)
    */
-  bool update(int id);
+  bool dockDrone(int id);
+
+  /**
+   * @brief Charges the drone that is docked at the charge station.
+   * @param dt is the change in time
+   */
+  void update(double dt);
 
   /**
    * @brief Removing the copy constructor operator

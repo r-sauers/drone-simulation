@@ -10,13 +10,16 @@
 
 ChargeStation::ChargeStation(JsonObject& obj) : IEntity(obj) {
   dockedDrone = -1;
-  Vector3 spawnPt = {static_cast<double>((std::rand() % (1500 + 1400)) - 1400),
-                     static_cast<double>((std::rand() % (600 - 240)) + 240),
-                     static_cast<double>((std::rand() % (800 + 800)) - 800)};
-  position = spawnPt;
+  // Vector3 spawnPt = {static_cast<double>((std::rand() % (1500 + 1400)) - 1400),
+  //                    static_cast<double>((std::rand() % (600 - 240)) + 240),
+  //                    static_cast<double>((std::rand() % (800 + 800)) - 800)};
+  // position = spawnPt;
 }
 
-bool ChargeStation::update(int id) {
+// TODO: charge drone battery?
+void ChargeStation::update(double dt) {}
+
+bool ChargeStation::dockDrone(int id) {
   if (dockedDrone == id) {  // Undocking case
     dockedDrone = -1;
     return true;
