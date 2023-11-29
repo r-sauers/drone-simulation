@@ -43,6 +43,11 @@ class Drone : public IEntity {
   void update(double dt);
 
   /**
+   * @brief Gets the ID of the drone 
+   */
+  int getID();
+
+  /**
    * @brief Removing the copy constructor operator
    * so that drones cannot be copied.
    */

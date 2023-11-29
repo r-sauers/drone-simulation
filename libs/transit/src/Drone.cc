@@ -109,3 +109,7 @@ void Drone::update(double dt) {
     }
   }
 }
+
+int Drone::getID() {
+  return id;
+}

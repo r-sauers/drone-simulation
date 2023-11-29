@@ -19,6 +19,9 @@ IEntity::IEntity(JsonObject& details) : IEntity() {
   std::string n = details["name"];
   name = n;
   speed = details["speed"];
+  if (details.contains("id")) {
+    id = details["id"];
+  }
 }
 
 IEntity::~IEntity() {}
