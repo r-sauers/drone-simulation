@@ -30,6 +30,11 @@ class IEntity {
   */
   IEntity(JsonObject& details);
 
+    /**
+   * @brief Constructor with JsonObject details to define the entity
+  */
+  IEntity(const JsonObject& details);
+
   /**
    * @brief Virtual destructor for IEntity.
    */

@@ -1,9 +1,9 @@
 #include "BatteryDecorator.h"
 #include "Drone.h"
 
-BatteryDecorator::BatteryDecorator(Drone* drone, double batteryPower) {
+BatteryDecorator::BatteryDecorator(Drone* drone, double batteryPower)
+    : Drone(drone->getDetails()) {
     this->batteryPower = batteryPower;
-    this->drone = drone;
 }
 
 double BatteryDecorator::getBatteryPower() {

@@ -19,6 +19,10 @@ Drone::Drone(JsonObject& obj) : IEntity(obj) {
   available = true;
 }
 
+Drone::Drone(const JsonObject& obj) : IEntity(obj) {
+  available = true;
+}
+
 Drone::~Drone() {
   if (toPackage) delete toPackage;
   if (toFinalDestination) delete toFinalDestination;

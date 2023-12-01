@@ -24,6 +24,24 @@ IEntity::IEntity(JsonObject& details) : IEntity() {
   }
 }
 
+IEntity::IEntity(const JsonObject& details) : IEntity() {
+  this->details = details;
+  JsonArray pos(details["position"]);
+  position = {pos[0], pos[1], pos[2]};
+  JsonArray dir(details["direction"]);
+  direction = {dir[0], dir[1], dir[2]};
+  if (details.contains("color")) {
+    std::string col = details["color"];
+    color = col;
+  }
+  std::string n = details["name"];
+  name = n;
+  speed = details["speed"];
+  if (details.contains("id")) {
+    id = details["id"];
+  }
+}
+
 IEntity::~IEntity() {}
 
 void IEntity::linkModel(SimulationModel* model) {

@@ -4,11 +4,11 @@
 #include "Drone.h"
 
 /**
-* @brief this class inherits from the Drone class and represents a Battery decorator
+* @brief this class inherits from the IEntity class and represents a Battery decorator
 * that allows the Drone to move according to and maintain a batteryPower
 * attribute
 */
-class BatteryDecorator : public IEntity {
+class BatteryDecorator : public Drone {
     public:
     /**
      * @brief Construct a Battery Decorator object
@@ -16,11 +16,6 @@ class BatteryDecorator : public IEntity {
      * @param[in] batteryPower starting battery power
     */
         BatteryDecorator(Drone* drone, double batteryPower = 100);
-
-    /**
-     * @brief Placeholder constructor
-    */
-        ~BatteryDecorator() override;
 
     /**
      * @brief Gets the current battery power

@@ -25,6 +25,8 @@ class Drone : public IEntity {
    */
   Drone(JsonObject& obj);
 
+  Drone(const JsonObject& obj);
+
   /**
    * @brief Destructor
    */
