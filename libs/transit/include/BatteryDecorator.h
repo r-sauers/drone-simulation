@@ -8,14 +8,14 @@
 * that allows the Drone to move according to and maintain a batteryPower
 * attribute
 */
-class BatteryDecorator : public Drone {
+class BatteryDecorator : public IEntity {
     public:
     /**
      * @brief Construct a Battery Decorator object
      * @param[in] drone the Drone to decorate onto
      * @param[in] batteryPower starting battery power
     */
-        BatteryDecorator(Drone* drone, double batteryPower);
+        BatteryDecorator(Drone* drone, double batteryPower = 100);
 
     /**
      * @brief Placeholder constructor
@@ -27,7 +27,7 @@ class BatteryDecorator : public Drone {
      * 
      * @return double current batteryPower
     */
-        double getBatteryPower() const;
+        double getBatteryPower();
 
     /**
      * @brief set the battery power of the drone
@@ -43,8 +43,8 @@ class BatteryDecorator : public Drone {
     */
         void update(double dt) override;
     private:
-        Drone* drone;
-        double batteryPower;
+        Drone* drone = nullptr;
+        double batteryPower = 100;
 };
 
 #endif

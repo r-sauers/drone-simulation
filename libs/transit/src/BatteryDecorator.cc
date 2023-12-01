@@ -1,11 +1,12 @@
 #include "BatteryDecorator.h"
 #include "Drone.h"
 
-BatteryDecorator::BatteryDecorator(Drone* drone, double batteryPower) : Drone(const_cast<JsonObject&>(drone->getDetails())){
+BatteryDecorator::BatteryDecorator(Drone* drone, double batteryPower) {
     this->batteryPower = batteryPower;
+    this->drone = drone;
 }
 
-double BatteryDecorator::getBatteryPower() const {
+double BatteryDecorator::getBatteryPower() {
     return batteryPower;
 }
 
@@ -14,5 +15,5 @@ void BatteryDecorator::setBatteryPower(double batteryPower) {
 }
 
 void BatteryDecorator::update(double dt) {
-    return;
+    drone->update(dt);
 }
