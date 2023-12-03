@@ -46,8 +46,21 @@ class Drone : public IEntity {
 
   /**
    * @brief Gets the ID of the drone 
+   * @return The ID of the drone
    */
   int getID();
+
+  /**
+   * @brief Gets the charge seeking status of the drone 
+   * @return The charge seeking status of the drone
+   */
+  bool getSeekingCharge();
+
+  /**
+   * @brief Sets the charge seeking status of the drone 
+   * @param seek the new charge seeking status of the drone
+   */
+  void setSeekingCharge(bool seek);
 
   /**
    * @brief Removing the copy constructor operator
@@ -64,6 +77,7 @@ class Drone : public IEntity {
  private:
   bool available = false;
   bool pickedUp = false;
+  bool seekingCharge = false;
   Package* package = nullptr;
   IStrategy* toPackage = nullptr;
   IStrategy* toFinalDestination = nullptr;

@@ -10,12 +10,12 @@
 /**
  * @class ChargeStation
  * @brief Represents a ChargeStation in a physical system. A ChargeStation is
- * spawned randomly on the map at the beginning of each run of the simulation.
+ * spawned on the map at the beginning of each run of the simulation.
  */
 class ChargeStation : public IEntity {
  public:
   /**
-   * @brief ChargeStations are created with a JsonObject, position is set randomly
+   * @brief ChargeStations are created with a JsonObject
    * @param obj JSON object containing the ChargeStation's information
    */
   ChargeStation(JsonObject& obj);
@@ -44,7 +44,7 @@ class ChargeStation : public IEntity {
   ChargeStation& operator=(const ChargeStation& ChargeStation) = delete;
 
  private:
-  int dockedDrone;  // The current drone that
+  int dockedDrone;  // The current drone that is at the chargestation, if any
 };
 
 #endif

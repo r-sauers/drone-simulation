@@ -17,10 +17,12 @@
 
 Drone::Drone(JsonObject& obj) : IEntity(obj) {
   available = true;
+  seekingCharge = false;
 }
 
 Drone::Drone(const JsonObject& obj) : IEntity(obj) {
   available = true;
+  seekingCharge = false;
 }
 
 Drone::~Drone() {
@@ -116,4 +118,12 @@ void Drone::update(double dt) {
 
 int Drone::getID() {
   return id;
+}
+
+bool Drone::getSeekingCharge() {
+  return seekingCharge;
+}
+
+void Drone::setSeekingCharge(bool seek) {
+  seekingCharge = seek;
 }
