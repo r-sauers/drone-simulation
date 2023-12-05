@@ -1,12 +1,13 @@
 #include "BatteryDecorator.h"
 #include "SimulationModel.h"
+#include "BeelineStrategy.h"
 
 BatteryDecorator::BatteryDecorator(Drone* drone, double batteryPower)
     : Drone(drone->getDetails()) {
   this->batteryPower = batteryPower;
   this->charging = 0;
   this->drone = drone;
-  //this->station = chargeStations.back();
+  // this->station = chargeStations.back();
 }
 
 double BatteryDecorator::getBatteryPower() { return batteryPower; }
@@ -21,6 +22,7 @@ void BatteryDecorator::update(double dt) {
     this->linked = 1;
   }
   this->drone->update(dt);
+  this->setPosition(this->drone->getPosition());
   // if (this->charging) {
   //   this->batteryPower += dt * 20;  // Charges over 5 seconds
   //   if (this->batteryPower >= 100) {

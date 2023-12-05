@@ -43,9 +43,10 @@ class BatteryDecorator : public Drone {
  private:
   Drone* drone = nullptr;
   double batteryPower = 100;
-  ChargeStation* station;
+  ChargeStation* station = nullptr;
   int charging = 0;
   int linked = 0;
+  IStrategy* movement = nullptr;
 };
 
 #endif

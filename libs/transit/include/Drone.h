@@ -74,7 +74,7 @@ class Drone : public IEntity {
    */
   Drone& operator=(const Drone& drone) = delete;
 
- private:
+//  private:
   bool available = false;
   bool pickedUp = false;
   bool seekingCharge = false;
