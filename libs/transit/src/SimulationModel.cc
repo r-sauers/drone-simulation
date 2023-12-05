@@ -1,6 +1,7 @@
 #include "SimulationModel.h"
 
 #include "DroneFactory.h"
+#include "BatteryDecorator.h"
 #include "PackageFactory.h"
 #include "RobotFactory.h"
 #include "HumanFactory.h"
@@ -120,3 +121,20 @@ void SimulationModel::removeFromSim(int id) {
     delete entity;
   }
 }
+
+// const JsonObject SimulationModel::getBatteryLevels() {
+//   std::cout << "Getting Battery Levels" << std::endl;
+//   JsonObject batteryLevels;
+//   for (auto& [id, entity] : entities) {
+//     std::string type = entity->getDetails()["type"];
+//     if(type == "Drone") {
+//       BatteryDecorator* battery = dynamic_cast<BatteryDecorator*>(entity);
+      
+//       batteryLevels[entity->getName()] = battery->getBatteryPower();
+//       std::cout << entity->getName() << ": " << battery->getBatteryPower() << std::endl;
+//     }
+//   }
+
+
+//   return batteryLevels;
+// }

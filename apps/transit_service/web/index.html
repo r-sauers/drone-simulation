@@ -78,9 +78,47 @@
 			<br><button onclick='stopSimulation()'>Stop Simulation</button>
 		</div>
 	</div>
+		<div id="battery"></div>
 	<div id="scene-container"></div>
 	<!-- Include the "main" graphics script and run it. -->
 	<script src="js/main.js"></script>
+	<script>
+		// //Script to check for battery levels in the simulation
+		// let backend = new WSApi();
+
+		// while(1) {
+		// 	setTimeout(() => {
+		// 		console.log("Getting battery levels")
+		// 	}, 1000)
+		// 	getBatteryLevels();
+		// }
+
+		// function getBatteryLevels() {
+		// 	const display = document.getElementById("battery");
+
+		// 	//Gets all drones battery level in json format
+		// 	const batteryLevels = backend.sendCommand("getBatteryLevels").response;
+		// 	setTimeout(() => {
+		// 		console.log("Waiting for backend response")
+		// 	}, 1000)
+		// 	console.log(batteryLevels);
+			
+		// 	const list = document.createElement("ul");
+
+		// 	batteryLevels.forEach(drone => {
+		// 		console.log(`Drone ID: ${drone.id}, Battery Power: ${drone.batteryPower}`);
+
+		// 		const droneItem = document.createElement("li");
+		// 		droneItem.textContent = `Drone ID: ${drone.id}, Battery Power: ${drone.batteryPower}`;
+				
+		// 		list.appendChild(droneItem);
+		// 	})
+			
+		// 	display.innerHTML = "";
+
+		// 	display.appendChild(list);
+		// }
+	</script>
 </body>
 
 </html>

@@ -45,6 +45,7 @@ class BatteryDecorator : public Drone {
   double batteryPower = 100;
   ChargeStation* station;
   int charging = 0;
+  int linked = 0;
 };
 
 #endif

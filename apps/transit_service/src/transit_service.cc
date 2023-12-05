@@ -52,6 +52,10 @@ public:
                 sendEntity("UpdateEntity", *entity);
             }
         }
+        // else if(cmd == "getBatteryLevels") { //Created by Jacob Lopez for Battery Level Display
+        //     std::cout << "Attempting to get Battery Levels\n";
+        //     returnValue["response"] = model.getBatteryLevels();
+        // }
         else if (cmd == "stopSimulation")
         {
             std::cout << "Stop command administered\n";
