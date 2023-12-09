@@ -1,11 +1,12 @@
 #include "SimulationModel.h"
 
-#include "DroneFactory.h"
 #include "BatteryDecorator.h"
+#include "ChargeStationFactory.h"
+#include "DroneFactory.h"
+#include "HelicopterFactory.h"
+#include "HumanFactory.h"
 #include "PackageFactory.h"
 #include "RobotFactory.h"
-#include "HumanFactory.h"
-#include "HelicopterFactory.h"
 
 SimulationModel::SimulationModel(IController& controller)
     : controller(controller) {
@@ -14,6 +15,7 @@ SimulationModel::SimulationModel(IController& controller)
   entityFactory.AddFactory(new RobotFactory());
   entityFactory.AddFactory(new HumanFactory());
   entityFactory.AddFactory(new HelicopterFactory());
+  entityFactory.AddFactory(new ChargeStationFactory());
 }
 
 SimulationModel::~SimulationModel() {
@@ -35,14 +37,17 @@ IEntity* SimulationModel::createEntity(JsonObject& entity) {
     myNewEntity->linkModel(this);
     controller.addEntity(*myNewEntity);
     entities[myNewEntity->getId()] = myNewEntity;
+    std::string type = entity["type"];
+    if (type == "charge_station") {
+      ChargeStation* chargeStation = dynamic_cast<ChargeStation*>(myNewEntity);
+      chargeStations.push_back(chargeStation);
+    }
   }
 
   return myNewEntity;
 }
 
-void SimulationModel::removeEntity(int id) {
-  removed.insert(id);
-}
+void SimulationModel::removeEntity(int id) { removed.insert(id); }
 
 /// Schedules a Delivery for an object in the scene
 void SimulationModel::scheduleTrip(JsonObject& details) {
@@ -56,7 +61,7 @@ void SimulationModel::scheduleTrip(JsonObject& details) {
   for (auto& [id, entity] : entities) {
     if (name == entity->getName()) {
       if (Robot* r = dynamic_cast<Robot*>(entity)) {
-        if  (r->requestedDelivery) {
+        if (r->requestedDelivery) {
           receiver = r;
           break;
         }
@@ -69,7 +74,7 @@ void SimulationModel::scheduleTrip(JsonObject& details) {
   for (auto& [id, entity] : entities) {
     if (name + "_package" == entity->getName()) {
       if (Package* p = dynamic_cast<Package*>(entity)) {
-        if  (p->requiresDelivery) {
+        if (p->requiresDelivery) {
           package = p;
           break;
         }
@@ -86,9 +91,7 @@ void SimulationModel::scheduleTrip(JsonObject& details) {
   }
 }
 
-const routing::IGraph* SimulationModel::getGraph() {
-  return graph;
-}
+const routing::IGraph* SimulationModel::getGraph() { return graph; }
 
 /// Updates the simulation
 void SimulationModel::update(double dt) {
@@ -102,15 +105,13 @@ void SimulationModel::update(double dt) {
   removed.clear();
 }
 
-void SimulationModel::stop(void) {
-  controller.stop();
-}
+void SimulationModel::stop(void) { controller.stop(); }
 
 void SimulationModel::removeFromSim(int id) {
   IEntity* entity = entities[id];
   if (entity) {
-    for (auto i = scheduledDeliveries.begin();
-      i != scheduledDeliveries.end(); ++i) {
+    for (auto i = scheduledDeliveries.begin(); i != scheduledDeliveries.end();
+         ++i) {
       if (*i == entity) {
         scheduledDeliveries.erase(i);
         break;
@@ -129,12 +130,11 @@ void SimulationModel::removeFromSim(int id) {
 //     std::string type = entity->getDetails()["type"];
 //     if(type == "Drone") {
 //       BatteryDecorator* battery = dynamic_cast<BatteryDecorator*>(entity);
-      
 //       batteryLevels[entity->getName()] = battery->getBatteryPower();
-//       std::cout << entity->getName() << ": " << battery->getBatteryPower() << std::endl;
+//       std::cout << entity->getName() << ": " << battery->getBatteryPower() <<
+//       std::endl;
 //     }
 //   }
-
 
 //   return batteryLevels;
 // }

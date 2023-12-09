@@ -50,3 +50,4 @@ class BatteryDecorator : public Drone {
 };
 
 #endif
+

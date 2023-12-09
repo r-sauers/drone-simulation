@@ -12,7 +12,10 @@ ChargeStation::ChargeStation(JsonObject& obj) : IEntity(obj) {
   dockedDrone = -1;
 }
 
-bool ChargeStation::update(int id) {
+// TODO(Harrison Wallander): charge drone battery?
+void ChargeStation::update(double dt) {}
+
+bool ChargeStation::dockDrone(int id) {
   if (dockedDrone == id) {  // Undocking case
     dockedDrone = -1;
     return true;
@@ -22,3 +25,4 @@ bool ChargeStation::update(int id) {
   }
   return false;  // Failure case
 }
+

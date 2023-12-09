@@ -4,11 +4,14 @@
 #include <deque>
 #include <map>
 #include <set>
+#include <vector>
 
+#include "ChargeStation.h"
 #include "CompositeFactory.h"
 #include "Drone.h"
 #include "IController.h"
 #include "IEntity.h"
+#include "Package.h"
 #include "Robot.h"
 #include "graph.h"
 
@@ -80,12 +83,14 @@ class SimulationModel {
 
   // /**
   //  * @brief Returns the battery levels of all the Drone Entities in the Model
-  //  * 
+  //  *
   //  * @returns JsonObject json of drone id's and battery level
   // */
   // const JsonObject getBatteryLevels();
 
   std::deque<Package*> scheduledDeliveries;
+
+  std::vector<ChargeStation*> chargeStations;
 
  protected:
   IController& controller;

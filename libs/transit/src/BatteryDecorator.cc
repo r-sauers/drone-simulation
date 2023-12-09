@@ -17,7 +17,7 @@ void BatteryDecorator::setBatteryPower(double batteryPower) {
 }
 
 void BatteryDecorator::update(double dt) {
-  if(!this->linked) {
+  if (!this->linked) {
     this->drone->linkModel(model);
     this->linked = 1;
   }
@@ -45,3 +45,4 @@ void BatteryDecorator::update(double dt) {
   //   }
   // }
 }
+
