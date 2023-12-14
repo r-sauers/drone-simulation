@@ -22,27 +22,31 @@ void BatteryDecorator::update(double dt) {
     this->linked = 1;
   }
 
+  if (!this->station) {
+    this->station = this->model->chargeStations.back();
+  }
+
   std::cout << "Battery Power: " << this->batteryPower << std::endl;
   if (this->charging) {
     this->batteryPower += dt * 20;  // Charges over 5 seconds
     if (this->batteryPower >= 100) {
       this->charging = 0;
       this->batteryPower = 100;
-      // this->station->update(this->drone->getID());  // Undock
+      this->station->update(this->drone->getID());  // Undock
     }
   } else {
     if (this->batteryPower > 0) {
       this->batteryPower -= dt * 2;  // Drains over 50 seconds
-      // if ((this->drone->getPosition() == this->station->getPosition()) &&
-      //     (this->drone->getSeekingCharge() == 1)) {
-      //   if (this->station->dockDrone(this->drone->getID())) {  // Try to dock
-          // this->charging = 1;
-          // this->drone->setSeekingCharge(0);
-        // } else {
-      this->drone->update(dt);
-      this->setPosition(this->drone->getPosition());
-        // }
-      // }
+      if ((this->drone->getPosition() == this->station->getPosition()) &&
+          (this->drone->getSeekingCharge() == 1)) {
+        if (this->station->dockDrone(this->drone->getID())) {  // Try to dock
+          this->charging = 1;
+          this->drone->setSeekingCharge(0);
+        } else {
+          this->drone->update(dt);
+          this->setPosition(this->drone->getPosition());
+        }
+      }
     }
   }
 }
