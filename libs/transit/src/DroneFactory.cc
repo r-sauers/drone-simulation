@@ -7,5 +7,6 @@ IEntity* DroneFactory::CreateEntity(JsonObject& entity) {
     std::cout << "Drone Created" << std::endl;
     return new BatteryDecorator(new Drone(entity), 100);
   }
+  std::cout << "Type flag" << type << std::endl;
   return nullptr;
 }
