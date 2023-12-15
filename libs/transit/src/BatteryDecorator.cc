@@ -38,7 +38,7 @@ void BatteryDecorator::update(double dt) {
     }
   } else {
     if (this->batteryPower > 0) {
-      this->batteryPower -= dt * 2;  // Drains over 50 seconds
+      this->batteryPower -= dt;  // Drains over 100 seconds
 
 
     }

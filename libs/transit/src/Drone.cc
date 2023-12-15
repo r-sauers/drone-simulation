@@ -106,33 +106,34 @@ void Drone::update(double dt) {
       atStation = true;
     }
   }
+  else {
+    if (available)
+      getNextDelivery();
 
-  if (available)
-    getNextDelivery();
+    if (toPackage) {
+      toPackage->move(this, dt);
 
-  if (toPackage) {
-    toPackage->move(this, dt);
+      if (toPackage->isCompleted()) {
+        delete toPackage;
+        toPackage = nullptr;
+        pickedUp = true;
+      }
+    } else if (toFinalDestination) {
+      toFinalDestination->move(this, dt);
 
-    if (toPackage->isCompleted()) {
-      delete toPackage;
-      toPackage = nullptr;
-      pickedUp = true;
-    }
-  } else if (toFinalDestination) {
-    toFinalDestination->move(this, dt);
+      if (package && pickedUp) {
+        package->setPosition(position);
+        package->setDirection(direction);
+      }
 
-    if (package && pickedUp) {
-      package->setPosition(position);
-      package->setDirection(direction);
-    }
-
-    if (toFinalDestination->isCompleted()) {
-      delete toFinalDestination;
-      toFinalDestination = nullptr;
-      package->handOff();
-      package = nullptr;
-      available = true;
-      pickedUp = false;
+      if (toFinalDestination->isCompleted()) {
+        delete toFinalDestination;
+        toFinalDestination = nullptr;
+        package->handOff();
+        package = nullptr;
+        available = true;
+        pickedUp = false;
+      }
     }
   }
 }
