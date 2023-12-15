@@ -89,7 +89,7 @@ The data collection feature runs in the background of the simulation and gathers
 
 ## UML Diagrams:
 ### Battery Decorator
-![BatteryDecorator](https://media.github.umn.edu/user/22463/files/c1f1cd3b-9292-4743-8967-0afc46222619)
+[BatteryDecorator.pdf](https://github.umn.edu/umn-csci-3081-f23/team-010-40-hw4/files/1046/BatteryDecorator.pdf)
 
 ### Singleton Data Collection
 
