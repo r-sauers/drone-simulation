@@ -33,21 +33,30 @@ void BatteryDecorator::update(double dt) {
       this->charging = 0;
       this->batteryPower = 100;
       this->station->update(this->drone->getID());  // Undock
+      this->drone->setSeekingCharge(false);
+      this->drone->setAtStation(false);
     }
   } else {
     if (this->batteryPower > 0) {
       this->batteryPower -= dt * 2;  // Drains over 50 seconds
-      if ((this->drone->getPosition() == this->station->getPosition()) &&
-          (this->drone->getSeekingCharge() == 1)) {
-        if (this->station->dockDrone(this->drone->getID())) {  // Try to dock
-          this->charging = 1;
-          this->drone->setSeekingCharge(0);
-        } else {
-          this->drone->update(dt);
-          this->setPosition(this->drone->getPosition());
-        }
+
+
+    }
+    else {
+      if(this->drone->getSeekingCharge() == false && this->drone->getAtStation() == false) { // Drone is not at station and not seeking charge
+        this->drone->setSeekingCharge(true);
       }
     }
+      
+    if (this->drone->getAtStation()) { // Drone is at station for charging
+      std::cout << "Attempting to dock" << std::endl;
+      if (this->station->dockDrone(this->drone->getID())) {  // Try to dock
+        this->charging = true;
+      }
+    }
+
+    drone->update(dt);
+    this->setPosition(this->drone->getPosition());
   }
 }
 

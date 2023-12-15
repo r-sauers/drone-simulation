@@ -62,6 +62,18 @@ class Drone : public IEntity {
    */
   void setSeekingCharge(bool seek);
 
+    /**
+   * @brief Gets the status of the drone that states whether its at a station or not 
+   * @return The status of the drone that states whether its at a station or not
+   */
+  bool getAtStation();
+
+  /**
+   * @brief Sets the status of the drone that states whether its at a station or not 
+   * @param atStation the new status of the drone that states whether its at a station or not
+   */
+  void setAtStation(bool atStation);
+
   /**
    * @brief Removing the copy constructor operator
    * so that drones cannot be copied.
@@ -78,9 +90,11 @@ class Drone : public IEntity {
   bool available = false;
   bool pickedUp = false;
   bool seekingCharge = false;
+  bool atStation = false;
   Package* package = nullptr;
   IStrategy* toPackage = nullptr;
   IStrategy* toFinalDestination = nullptr;
+  IStrategy* toCharge = nullptr;
 };
 
 #endif

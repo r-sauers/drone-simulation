@@ -28,6 +28,7 @@ Drone::Drone(const JsonObject& obj) : IEntity(obj) {
 Drone::~Drone() {
   if (toPackage) delete toPackage;
   if (toFinalDestination) delete toFinalDestination;
+  if (toCharge) delete toCharge;
 }
 
 void Drone::getNextDelivery() {
@@ -86,6 +87,26 @@ void Drone::getNextDelivery() {
 }
 
 void Drone::update(double dt) {
+  if (seekingCharge && !toCharge && !atStation) {
+    available = false;
+
+    Vector3 chargeDestination = model->chargeStations.back()->getPosition();
+
+    toCharge = new BeelineStrategy(position, chargeDestination);
+  }
+
+  if (toCharge) {
+    toCharge->move(this, dt);
+    std::cout << "Moving to Charge" << std::endl;
+
+    if (toCharge->isCompleted()) {
+      delete toCharge;
+      toCharge = nullptr;
+      available = true;
+      atStation = true;
+    }
+  }
+
   if (available)
     getNextDelivery();
 
@@ -126,4 +147,12 @@ bool Drone::getSeekingCharge() {
 
 void Drone::setSeekingCharge(bool seek) {
   seekingCharge = seek;
+}
+
+bool Drone::getAtStation() {
+  return atStation;
+}
+
+void Drone::setAtStation(bool atStation) {
+  this->atStation = atStation;
 }
