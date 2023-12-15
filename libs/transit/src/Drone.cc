@@ -135,6 +135,10 @@ void Drone::update(double dt) {
       }
     }
   }
+
+  
+  //model->getGraph()
+
 }
 
 int Drone::getID() {
