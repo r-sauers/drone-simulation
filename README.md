@@ -34,16 +34,16 @@ The simulation simulates package scheduling, pickup, and delivery on the UMN-TC 
  - The helicopter is spawned upon simulation start, and repeatedly beelines to a random location before picking a new random location and repeating.
  - The helicopter's update function moves directly towards a location or randomly chooses a new one if needed.
 ##### Human:
- - The human is spawned upon a click of the "Add Human" button on the scheduling page, and repeatedly moves to a random location before picking a new random location and repeating.
+ - A human is spawned upon simulation start, and more humans can be spawned by clicking the "Add Human" button on the scheduling page, and humans repeatedly move to a random location before picking a new random location and repeating.
  - The human's update function moves to a location using Astar pathing or randomly selects a new location if needed. 
 ##### Package:
- - The package is spawned at the pickup location when a delivery is scheduled, and remains stationary until a drone picks it up, at which point it will be "carried" by the drone until the drone either delivers it or runs out of battery. When the package is delivered, the package celebrates with the drone before being dropped off and remaining stationary until the simulation ends.
+ - A package is spawned at the pickup location when a delivery is scheduled, and remains stationary until a drone picks it up, at which point it will be "carried" by the drone until the drone either delivers it or runs out of battery. When the package is delivered, the package celebrates with the drone before being dropped off and remaining stationary until the simulation ends.
  - The package's update function checks if a drone is carrying it, and if it is, then it moves the package with the drone, otherwise the package remains stationary.
 ##### Charge Station:
  - The charge station is spawned upon simulation start, and does not move. It waits idly until a drone docks to it, at which point it charges the drone before undocking the drone and repeating.
  - The charge station's update function is empty, but the equivalent function is the dockDrone function, which takes in a drone ID and checks if a drone is already docked, and if it is the drone that called the function, then it undocks that drone, otherwise it returns false to indicate another drone is docked. If no drones are docked, it returns true and docks the drone.
 ##### Robot:
- - The robot is spawned at the destination location when a delivery is scheduled, and remains stationary as a marker of the destination for the package being delivered.
+ - A robot is spawned at the destination location when a delivery is scheduled, and remains stationary as a marker of the destination for the package being delivered.
 ##### Battery:
  - The battery is spawned with the drone as a decorator onto the drone entity, and drains over 50 seconds of simulation time, and takes 5 seconds to recharge.
  - The battery update function checks if the drone is currently charging or not, and if it is, then it charges the drone such that it takes 5 seconds to fully refill the battery, otherwise it drains the battery such that it takes 50 seconds to drain fully.
