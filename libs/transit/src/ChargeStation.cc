@@ -1,10 +1,10 @@
 #define _USE_MATH_DEFINES
-#include "ChargeStation.h"
 
 #include <cmath>
 #include <cstdlib>
 #include <limits>
 
+#include "ChargeStation.h"
 #include "Package.h"
 #include "SimulationModel.h"
 
@@ -12,7 +12,6 @@ ChargeStation::ChargeStation(JsonObject& obj) : IEntity(obj) {
   dockedDrone = -1;
 }
 
-// TODO(Harrison Wallander): charge drone battery?
 void ChargeStation::update(double dt) {}
 
 bool ChargeStation::dockDrone(int id) {
@@ -25,4 +24,3 @@ bool ChargeStation::dockDrone(int id) {
   }
   return false;  // Failure case
 }
-

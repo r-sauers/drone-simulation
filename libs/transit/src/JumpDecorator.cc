@@ -1,8 +1,8 @@
 #include "JumpDecorator.h"
 
 JumpDecorator::JumpDecorator(IStrategy* strategy, double time,
-  double jumpHeight)
-  : ICelebrationDecorator(strategy, time), jumpHeight(jumpHeight) {}
+                             double jumpHeight)
+    : ICelebrationDecorator(strategy, time), jumpHeight(jumpHeight) {}
 
 void JumpDecorator::celebrate(IEntity* entity, double dt) {
   Vector3 step(0, entity->getSpeed() * dt, 0);

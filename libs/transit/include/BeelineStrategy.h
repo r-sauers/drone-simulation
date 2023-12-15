@@ -9,13 +9,13 @@
  */
 class BeelineStrategy : public PathStrategy {
  public:
-    /**
-     * @brief Construct a new Beeline Strategy object
-     *
-     * @param position Starting position
-     * @param destination End destination
-     */
-    BeelineStrategy(Vector3 pos, Vector3 des);
+  /**
+   * @brief Construct a new Beeline Strategy object
+   *
+   * @param position Starting position
+   * @param destination End destination
+   */
+  BeelineStrategy(Vector3 pos, Vector3 des);
 };
 
 #endif  // BEELINE_H_

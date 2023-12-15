@@ -1,5 +1,4 @@
 #include "SimulationModel.h"
-
 #include "BatteryDecorator.h"
 #include "ChargeStationFactory.h"
 #include "DroneFactory.h"

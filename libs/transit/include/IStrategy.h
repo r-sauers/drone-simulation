@@ -9,18 +9,18 @@
  */
 class IStrategy {
  public:
- /**
-  * @brief Move toward next position
-  * 
-  * @param entity Entity to move
-  * @param dt Delta Time
-  */
+  /**
+   * @brief Move toward next position
+   *
+   * @param entity Entity to move
+   * @param dt Delta Time
+   */
   virtual void move(IEntity* entity, double dt) = 0;
 
   /**
    * @brief Check if the trip is completed
-   * 
-   * @return True if complete, false if not complete 
+   *
+   * @return True if complete, false if not complete
    */
   virtual bool isCompleted() = 0;
 };

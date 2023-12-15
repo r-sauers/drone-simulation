@@ -27,12 +27,12 @@ class IEntity {
 
   /**
    * @brief Constructor with JsonObject details to define the entity
-  */
+   */
   IEntity(JsonObject& details);
 
-    /**
+  /**
    * @brief Constructor with JsonObject details to define the entity
-  */
+   */
   IEntity(const JsonObject& details);
 
   /**

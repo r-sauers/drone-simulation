@@ -25,9 +25,9 @@ class Package : public IEntity {
 
   /**
    * @brief Returns the name of the strategy for this package
-   * 
+   *
    * @returns String name of strategy
-  */
+   */
   std::string getStrategyName() const;
 
   /**
@@ -39,21 +39,21 @@ class Package : public IEntity {
 
   /**
    * @brief Updates the Package
-   * 
+   *
    * @param dt difference in time since last update
-  */
+   */
   void update(double dt);
 
   /**
    * @brief Sets the attributes for delivery
-   * 
+   *
    * @param owner Robot for the package to be delivered to
-  */
+   */
   void initDelivery(Robot* owner);
 
   /**
    * @brief Gives the robot/owner this package
-  */
+   */
   void handOff();
 
   bool requiresDelivery = true;

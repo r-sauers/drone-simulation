@@ -32,7 +32,6 @@ class Drone : public IEntity {
    */
   ~Drone();
 
-
   /**
    * @brief Gets the next delivery in the scheduler
    */
@@ -45,32 +44,35 @@ class Drone : public IEntity {
   void update(double dt);
 
   /**
-   * @brief Gets the ID of the drone 
+   * @brief Gets the ID of the drone
    * @return The ID of the drone
    */
   int getID();
 
   /**
-   * @brief Gets the charge seeking status of the drone 
+   * @brief Gets the charge seeking status of the drone
    * @return The charge seeking status of the drone
    */
   bool getSeekingCharge();
 
   /**
-   * @brief Sets the charge seeking status of the drone 
+   * @brief Sets the charge seeking status of the drone
    * @param seek the new charge seeking status of the drone
    */
   void setSeekingCharge(bool seek);
 
-    /**
-   * @brief Gets the status of the drone that states whether its at a station or not 
+  /**
+   * @brief Gets the status of the drone that states whether its at a station or
+   * not
    * @return The status of the drone that states whether its at a station or not
    */
   bool getAtStation();
 
   /**
-   * @brief Sets the status of the drone that states whether its at a station or not 
-   * @param atStation the new status of the drone that states whether its at a station or not
+   * @brief Sets the status of the drone that states whether its at a station or
+   * not
+   * @param atStation the new status of the drone that states whether its at a
+   * station or not
    */
   void setAtStation(bool atStation);
 
@@ -86,7 +88,7 @@ class Drone : public IEntity {
    */
   Drone& operator=(const Drone& drone) = delete;
 
-//  private:
+  //  private:
   bool available = false;
   bool pickedUp = false;
   bool seekingCharge = false;

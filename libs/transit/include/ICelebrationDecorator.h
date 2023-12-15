@@ -21,7 +21,6 @@ class ICelebrationDecorator : public IStrategy {
    */
   ICelebrationDecorator(IStrategy* strategy, double time = 4);
 
-
   /**
    * @brief Celebration Destructor
    */
@@ -29,7 +28,7 @@ class ICelebrationDecorator : public IStrategy {
 
   /**
    * @brief Move the entity with the behavior as described for 4 seconds.
-   * 
+   *
    * @param entity Entity to move
    * @param dt Delta Time
    */

@@ -26,16 +26,16 @@ class Robot : public IEntity {
 
   /**
    * @brief Updates the Package
-   * 
+   *
    * @param dt difference in time since last update
-  */
+   */
   void update(double dt);
 
   /**
    * @brief Receives the passed in package
    *
    * @param Package* Package to be received by the robot
-  */
+   */
   void receive(Package* p);
 
   bool requestedDelivery = true;

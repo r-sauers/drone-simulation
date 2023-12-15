@@ -1,17 +1,11 @@
 #include "Package.h"
-
 #include "Robot.h"
 
-Package::Package(JsonObject &obj) : IEntity(obj) {
-}
+Package::Package(JsonObject& obj) : IEntity(obj) {}
 
-Vector3 Package::getDestination() const {
-  return destination;
-}
+Vector3 Package::getDestination() const { return destination; }
 
-std::string Package::getStrategyName() const {
-  return strategyName;
-}
+std::string Package::getStrategyName() const { return strategyName; }
 
 void Package::setStrategyName(std::string strategyName_) {
   strategyName = strategyName_;

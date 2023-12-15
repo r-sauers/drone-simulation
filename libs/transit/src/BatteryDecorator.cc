@@ -1,6 +1,6 @@
 #include "BatteryDecorator.h"
-#include "SimulationModel.h"
 #include "BeelineStrategy.h"
+#include "SimulationModel.h"
 
 BatteryDecorator::BatteryDecorator(Drone* drone, double batteryPower)
     : Drone(drone->getDetails()) {
@@ -40,15 +40,15 @@ void BatteryDecorator::update(double dt) {
     if (this->batteryPower > 0) {
       this->batteryPower -= dt;  // Drains over 100 seconds
 
-
-    }
-    else {
-      if(this->drone->getSeekingCharge() == false && this->drone->getAtStation() == false) { // Drone is not at station and not seeking charge
+    } else {
+      if (this->drone->getSeekingCharge() == false &&
+          this->drone->getAtStation() ==
+              false) {  // Drone is not at station and not seeking charge
         this->drone->setSeekingCharge(true);
       }
     }
-      
-    if (this->drone->getAtStation()) { // Drone is at station for charging
+
+    if (this->drone->getAtStation()) {  // Drone is at station for charging
       std::cout << "Attempting to dock" << std::endl;
       if (this->station->dockDrone(this->drone->getID())) {  // Try to dock
         this->charging = true;
@@ -59,4 +59,3 @@ void BatteryDecorator::update(double dt) {
     this->setPosition(this->drone->getPosition());
   }
 }
-

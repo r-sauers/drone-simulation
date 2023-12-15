@@ -3,8 +3,8 @@
 
 #include <vector>
 
-#include "IEntityFactory.h"
 #include "ChargeStation.h"
+#include "IEntityFactory.h"
 
 /**
  *@brief ChargeStation Factory to produce ChargeStation class.

@@ -20,11 +20,12 @@ class JumpDecorator : public ICelebrationDecorator {
 
   /**
    * @brief Make the entity celebrate with the jump behavior.
-   * 
+   *
    * @param entity Entity to celebrate
    * @param dt Delta Time
    */
   void celebrate(IEntity* entity, double dt);
+
  private:
   double jumpHeight = 10;
   bool up = true;

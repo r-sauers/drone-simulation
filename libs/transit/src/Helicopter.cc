@@ -1,9 +1,9 @@
 #define _USE_MATH_DEFINES
-#include "Helicopter.h"
 
 #include <cmath>
 #include <limits>
 
+#include "Helicopter.h"
 #include "BeelineStrategy.h"
 
 Helicopter::Helicopter(JsonObject& obj) : IEntity(obj) {}

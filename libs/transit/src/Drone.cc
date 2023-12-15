@@ -11,7 +11,6 @@
 #include "DijkstraStrategy.h"
 #include "JumpDecorator.h"
 #include "SpinDecorator.h"
-
 #include "Package.h"
 #include "SimulationModel.h"
 

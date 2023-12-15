@@ -20,11 +20,12 @@ class SpinDecorator : public ICelebrationDecorator {
 
   /**
    * @brief Move the entity with the spin behavior for 4 seconds.
-   * 
+   *
    * @param entity Entity to move
    * @param dt Delta Time
    */
   void celebrate(IEntity* entity, double dt);
+
  private:
   double spinSpeed = 1;
 };

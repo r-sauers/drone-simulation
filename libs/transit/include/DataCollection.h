@@ -2,8 +2,8 @@
 #define DATA_COLLECTION_H_
 
 /**
- * @brief 
-*/
+ * @brief
+ */
 
 class DataCollection {
  public:
@@ -13,4 +13,3 @@ class DataCollection {
   int leftTurns = 0;
 };
 #endif
-
