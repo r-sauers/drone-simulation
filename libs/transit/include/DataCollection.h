@@ -31,6 +31,7 @@ class DataCollection {
    DataCollection(const DataCollection&) = delete;
    DataCollection& operator=(const DataCollection&) = delete;
    
+    static DataCollection* instance = nullptr;
     int rightTurns = 0;
     int leftTurns = 0;
     std::string lastStrategy;
