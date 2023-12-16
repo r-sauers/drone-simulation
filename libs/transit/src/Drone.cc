@@ -13,6 +13,7 @@
 #include "SpinDecorator.h"
 #include "Package.h"
 #include "SimulationModel.h"
+#include "DataCollection.h"
 
 Drone::Drone(JsonObject& obj) : IEntity(obj) {
   available = true;
@@ -42,9 +43,11 @@ void Drone::getNextDelivery() {
       Vector3 packagePosition = package->getPosition();
       Vector3 finalDestination = package->getDestination();
 
+      currentStrategy = "beeline";
       toPackage = new BeelineStrategy(position, packagePosition);
 
       std::string strat = package->getStrategyName();
+      currentStrategy = "strat";
       if (strat == "astar") {
         toFinalDestination =
           new JumpDecorator(
@@ -136,7 +139,9 @@ void Drone::update(double dt) {
     }
   }
 
-  
+  // if(currentStrategy != DataCollection::getLastStrategy()){
+  //   DataCollection::getStrategy(currentStrategy);
+  // }
   //model->getGraph()
 
 }

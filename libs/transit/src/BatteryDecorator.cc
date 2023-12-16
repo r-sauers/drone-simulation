@@ -1,6 +1,7 @@
 #include "BatteryDecorator.h"
 #include "BeelineStrategy.h"
 #include "SimulationModel.h"
+#include "DataCollection.h"
 
 BatteryDecorator::BatteryDecorator(Drone* drone, double batteryPower)
     : Drone(drone->getDetails()) {
@@ -56,6 +57,7 @@ void BatteryDecorator::update(double dt) {
     }
 
     drone->update(dt);
+    //DataCollection::getBatteryLevel(this->batteryPower);
     this->setPosition(this->drone->getPosition());
   }
 }

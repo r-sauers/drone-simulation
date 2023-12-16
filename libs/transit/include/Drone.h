@@ -97,6 +97,7 @@ class Drone : public IEntity {
   IStrategy* toPackage = nullptr;
   IStrategy* toFinalDestination = nullptr;
   IStrategy* toCharge = nullptr;
+  std::string currentStrategy;
 };
 
 #endif

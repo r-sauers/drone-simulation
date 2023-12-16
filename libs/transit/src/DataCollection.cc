@@ -14,15 +14,23 @@ void DataCollection::resetTurns(){
     rightTurns = 0;
 }
 
-void DataCollection::getBatteryLevel(double batteryLevel){
-    //battery Level, pathStrategy, delivered, picked up
-    //record these somehow, depends on # of drones
-    batteryLevel.push_back(batteryLevel);
+ std::string DataCollection::getLastStrategy(){
+    return lastStrategy;
+}
 
+void DataCollection::getBatteryLevel(double batteryL){
+    batteryLevel.push_back(batteryL);
+}
 
+void DataCollection::getStrategy(std::string strategy){
+    lastStrategy = strategy; 
+    strategys.push_back(strategy);
 }
 
 void DataCollection::getDronePath(std::vector<float> start, std::vector<float> end, const routing::RoutingStrategy& pathing, const routing::IGraph* g){
     std::vector< std::vector<float> > positionPath = g->GetPath(start, end, pathing);
+
+    //write/save old path maybe somehow
+
     posPath = positionPath; 
 }
