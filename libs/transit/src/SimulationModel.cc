@@ -26,7 +26,7 @@ SimulationModel::~SimulationModel() {
   delete graph;
 
   DataCollection* instance = DataCollection::getInstance();
-
+  instance->resetTurns();
   instance->writeBatteryToCSV();
   instance->writeStrategysToCSV();
 

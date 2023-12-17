@@ -29,6 +29,10 @@ void DataCollection::turnLeft(){
 }
 
 void DataCollection::resetTurns(){
+    if(rightTurnsVec.size() == 0 && first == true){
+        first = false;
+        return;
+    }
     rightTurnsVec.push_back(rightTurns);
     leftTurnsVec.push_back(leftTurns);
     leftTurns = 0;
@@ -71,6 +75,8 @@ void DataCollection::writeStrategysToCSV(){
     for (int i = 0; i < strategys.size(); i++) {
         outputFile << strategys[i] << ": " << rightTurnsVec[i] << ", " << leftTurnsVec[i] << "\n";
     }
+
+    outputFile << strategys.size() << " vs " << rightTurnsVec.size() << "\n";
 
     outputFile.close();
 }

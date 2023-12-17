@@ -32,6 +32,8 @@ class DataCollection {
    DataCollection& operator=(const DataCollection&) = delete;
    
    static DataCollection* instance;
+
+    bool first = true;
     int rightTurns = 0;
     int leftTurns = 0;
     std::string lastStrategy;

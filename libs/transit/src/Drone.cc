@@ -44,14 +44,10 @@ void Drone::getNextDelivery() {
       Vector3 finalDestination = package->getDestination();
 
       currentStrategy = "beeline";
-      DataCollection* instance = DataCollection::getInstance(); 
-      instance->resetTurns();
       toPackage = new BeelineStrategy(position, packagePosition);
 
       std::string strat = package->getStrategyName();
-      currentStrategy = strat;
-      instance = DataCollection::getInstance(); 
-      instance->resetTurns();
+      futureStrategy = strat;
       if (strat == "astar") {
         toFinalDestination =
           new JumpDecorator(
@@ -123,6 +119,7 @@ void Drone::update(double dt) {
         delete toPackage;
         toPackage = nullptr;
         pickedUp = true;
+        currentStrategy = futureStrategy;
       }
     } else if (toFinalDestination) {
       toFinalDestination->move(this, dt);
@@ -145,23 +142,35 @@ void Drone::update(double dt) {
   DataCollection* instance = DataCollection::getInstance(); 
   if(currentStrategy != instance->getLastStrategy()){
     instance->getStrategy(currentStrategy);
+    instance->resetTurns();
   }
   // model->getGraph()
 
+}
+
+void Drone::setDirection(Vector3 dir_){
+
+  double dot = direction * dir_;
+  double angle = std::acos(dot);  
+
+  direction = dir_;
+
+
+  DataCollection* instance = DataCollection::getInstance(); 
+
+  std::printf("--------Drone does some sort of rotate-------");
+
+  if(angle <= 3.1415926535){
+    instance->turnRight();
+  }else{
+    instance->turnLeft();
+  }
 }
 
 void Drone::rotate(double angle){
   Vector3 dirTmp = direction;
   direction.x = dirTmp.x * std::cos(angle) - dirTmp.z * std::sin(angle);
   direction.z = dirTmp.x * std::sin(angle) + dirTmp.z * std::cos(angle);
-
-  DataCollection* instance = DataCollection::getInstance(); 
-
-  if(angle >= 180.0){
-    instance->turnRight();
-  }else{
-    instance->turnLeft();
-  }
 }
 
 

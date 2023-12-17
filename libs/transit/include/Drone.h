@@ -43,6 +43,8 @@ class Drone : public IEntity {
    */
   void update(double dt);
 
+  void setDirection(Vector3 dir_) override;
+
   void rotate(double angle);
 
   /**
@@ -100,6 +102,7 @@ class Drone : public IEntity {
   IStrategy* toFinalDestination = nullptr;
   IStrategy* toCharge = nullptr;
   std::string currentStrategy;
+  std::string futureStrategy;
 };
 
 #endif
