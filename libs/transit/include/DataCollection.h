@@ -35,6 +35,12 @@ class DataCollection {
    */
   void resetTurns();
 
+
+  /**
+   * @brief Resets time counter
+   */
+  void resetTime();
+
   /**
    * @brief Gets the last used strategy for use in strategy data collection
    * @return The name of the type of prior strategy
@@ -54,17 +60,6 @@ class DataCollection {
    * @param strategy The current strategy to be used
    */
   void getStrategy(std::string strategy);
-
-  /**
-   * @brief Sets posPath to the current path the drone is taking
-   * @param start The location of the start of the current path
-   * @param end The location of the end of the current path
-   * @param pathing The strategy used for the current path
-   * @param g The graph of nodes that the path uses
-   */
-  void getDronePath(std::vector<float> start, std::vector<float> end,
-                    const routing::RoutingStrategy& pathing,
-                    const routing::IGraph* g);
 
   /**
    * @brief Writes the strategy and turn data to the strategyData CSV file
@@ -87,6 +82,8 @@ class DataCollection {
    */
   void addTotalTime(double dt);
 
+  void pushTimes();
+   
  private:
   /**
    * @brief DataCollection constructor, only used in getInstance
@@ -114,14 +111,14 @@ class DataCollection {
   bool first = true;
   int rightTurns = 0;
   int leftTurns = 0;
-  double totalTime;
+  double totalTime = 0;
+  double stratTime = 0;
   std::string lastStrategy;
-  std::vector<routing::IGraphNode*> nodePath;
-  std::vector<std::vector<float> > posPath;
   std::vector<double> batteryLevel;
   std::vector<std::string> strategys;
   std::vector<int> rightTurnsVec;
   std::vector<int> leftTurnsVec;
+  std::vector<double> timeTaken;
   std::string csvFilename = "strategyData.csv";
   std::string csvFilename2 = "batteryData.csv";
 };

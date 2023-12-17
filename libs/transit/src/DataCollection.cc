@@ -25,6 +25,8 @@ void DataCollection::turnLeft() { leftTurns += 1; }
 void DataCollection::resetTurns() {
   if (rightTurnsVec.size() == 0 && first == true) {
     first = false;
+    leftTurns = 0;
+    rightTurns = 0;
     return;
   }
   rightTurnsVec.push_back(rightTurns);
@@ -59,18 +61,6 @@ void DataCollection::getStrategy(std::string strategy) {
   strategys.push_back(strategy);
 }
 
-void DataCollection::getDronePath(std::vector<float> start,
-                                  std::vector<float> end,
-                                  const routing::RoutingStrategy& pathing,
-                                  const routing::IGraph* g) {
-  std::vector<std::vector<float> > positionPath =
-      g->GetPath(start, end, pathing);
-
-  // write/save old path maybe somehow
-
-  posPath = positionPath;
-}
-
 void DataCollection::writeStrategysToCSV() {
   std::printf("writestrat called");
 
@@ -79,14 +69,17 @@ void DataCollection::writeStrategysToCSV() {
   if (!outputFile.is_open()) {
     std::cerr << "Error Opening csv file" << std::endl;
   }
+
+    outputFile << "Strategy, right, left, time(dt)\n";
+
   static DataCollection instance;
 
   for (int i = 0; i < strategys.size(); i++) {
     outputFile << strategys[i] << ": " << rightTurnsVec[i] << ", "
-               << leftTurnsVec[i] << "\n";
+               << leftTurnsVec[i] << ", " << timeTaken[i] << "\n";
   }
 
-  outputFile << strategys.size() << " vs " << rightTurnsVec.size() << "\n";
+  outputFile << strategys.size() << " vs " << rightTurnsVec.size() << " vs " << timeTaken.size() << "\n";
 
   outputFile.close();
 }
@@ -119,4 +112,16 @@ void DataCollection::writeTimeToCSV() {
   outputFile.close();
 }
 
-void DataCollection::addTotalTime(double dt) { totalTime += dt; }
+void DataCollection::addTotalTime(double dt) { 
+    std::cout << "totalTime: " << totalTime << ", stratTime: " << stratTime << "\n"; 
+    totalTime += dt;
+    stratTime += dt;
+}
+
+void DataCollection::resetTime(){
+  stratTime = 0.0;
+}
+
+void DataCollection::pushTimes(){
+  timeTaken.push_back(stratTime);  
+}

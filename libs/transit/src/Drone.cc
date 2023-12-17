@@ -44,11 +44,17 @@ void Drone::getNextDelivery() {
       Vector3 packagePosition = package->getPosition();
       Vector3 finalDestination = package->getDestination();
 
-      currentStrategy = "beeline";
       toPackage = new BeelineStrategy(position, packagePosition);
 
       std::string strat = package->getStrategyName();
-      futureStrategy = strat;
+      if(currentStrategy == strat){
+        std::string temp = strat;
+        temp[0] = toupper(temp[0]);
+        currentStrategy = temp;
+      }else{
+        currentStrategy = strat;
+      }
+      
       if (strat == "astar") {
         toFinalDestination =
           new JumpDecorator(
@@ -125,7 +131,12 @@ void Drone::update(double dt) {
         toPackage = nullptr;
         pickedUp = true;
         moveStatus = 2;
-        currentStrategy = futureStrategy;
+        // if(currentStrategy != futureStrategy){
+        //   currentStrategy = futureStrategy;
+        //   DataCollection* instance = DataCollection::getInstance();
+        //   instance->resetTurns();
+        //   instance->resetTime();
+        // }
       }
     } else if (toFinalDestination) {
       toFinalDestination->move(this, dt);
@@ -149,6 +160,8 @@ void Drone::update(double dt) {
         available = true;
         pickedUp = false;
         moveStatus = 0;
+        DataCollection* instance = DataCollection::getInstance();
+        instance->pushTimes();
       }
     }
     else {
@@ -158,6 +171,7 @@ void Drone::update(double dt) {
   DataCollection* instance = DataCollection::getInstance(); 
   if(currentStrategy != instance->getLastStrategy()){
     instance->getStrategy(currentStrategy);
+    instance->resetTime();
     instance->resetTurns();
   }
   // model->getGraph()
