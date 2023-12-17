@@ -82,6 +82,9 @@ class DataCollection {
    */
   void addTotalTime(double dt);
 
+  /**
+   * @brief Adds the times to the 
+  */
   void pushTimes();
    
  private:

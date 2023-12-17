@@ -8,7 +8,6 @@ BatteryDecorator::BatteryDecorator(Drone* drone, double batteryPower)
   this->batteryPower = batteryPower;
   this->charging = 0;
   this->drone = drone;
-  // this->station = this->model->chargeStations.back();
 }
 
 double BatteryDecorator::getBatteryPower() { return batteryPower; }
@@ -57,7 +56,6 @@ void BatteryDecorator::update(double dt) {
     }
 
     if (this->drone->getAtStation()) {  // Drone is at station for charging
-      std::cout << "Attempting to dock" << std::endl;
       if (this->station->dockDrone(this->drone->getID())) {  // Try to dock
         this->charging = true;
       }
@@ -70,7 +68,6 @@ void BatteryDecorator::update(double dt) {
       counter = 0;
       DataCollection* instance = DataCollection::getInstance(); 
       instance->getBatteryLevel(this->batteryPower);
-      std::cout << "Battery Power: " << this->batteryPower << std::endl;
     }
     
     this->setPosition(this->drone->getPosition());

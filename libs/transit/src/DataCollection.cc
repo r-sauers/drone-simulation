@@ -50,7 +50,6 @@ void DataCollection::getBatteryLevel(double batteryL) {
       outputFile << ", ";
     }
     outputFile << "\n";
-    std::printf("Printed to file\n");
     outputFile.close();
     batteryLevel.clear();
   }
@@ -62,7 +61,6 @@ void DataCollection::getStrategy(std::string strategy) {
 }
 
 void DataCollection::writeStrategysToCSV() {
-  std::printf("writestrat called");
 
   std::ofstream outputFile(csvFilename);
 
@@ -79,13 +77,10 @@ void DataCollection::writeStrategysToCSV() {
                << leftTurnsVec[i] << ", " << timeTaken[i] << "\n";
   }
 
-  outputFile << strategys.size() << " vs " << rightTurnsVec.size() << " vs " << timeTaken.size() << "\n";
-
   outputFile.close();
 }
 
 void DataCollection::writeBatteryToCSV() {
-  std::printf("writeBattery called");
 
   std::ofstream outputFile(csvFilename2);
 
@@ -113,7 +108,6 @@ void DataCollection::writeTimeToCSV() {
 }
 
 void DataCollection::addTotalTime(double dt) { 
-    std::cout << "totalTime: " << totalTime << ", stratTime: " << stratTime << "\n"; 
     totalTime += dt;
     stratTime += dt;
 }

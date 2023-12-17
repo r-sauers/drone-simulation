@@ -108,7 +108,6 @@ void Drone::update(double dt) {
   if (toCharge) {
     toCharge->move(this, dt);
     moveStatus = 1;
-    std::cout << "Moving to Charge" << std::endl;
 
     if (toCharge->isCompleted()) {
       delete toCharge;
@@ -131,12 +130,6 @@ void Drone::update(double dt) {
         toPackage = nullptr;
         pickedUp = true;
         moveStatus = 2;
-        // if(currentStrategy != futureStrategy){
-        //   currentStrategy = futureStrategy;
-        //   DataCollection* instance = DataCollection::getInstance();
-        //   instance->resetTurns();
-        //   instance->resetTime();
-        // }
       }
     } else if (toFinalDestination) {
       toFinalDestination->move(this, dt);
@@ -144,7 +137,6 @@ void Drone::update(double dt) {
       if (!pickedUp && (abs(position.x - package->getPosition().x) < 50) && (abs(position.z - package->getPosition().z) < 50)) {
         pickedUp = true;
       }
-      //std::printf("Drone X: %f Package X: %f Drone Z: %f Package Z: %f\n", position.x, package->getPosition().x, position.z, package->getPosition().z);
 
       if (package && pickedUp) {
         package->setPosition(position);
@@ -173,9 +165,7 @@ void Drone::update(double dt) {
     instance->getStrategy(currentStrategy);
     instance->resetTime();
     instance->resetTurns();
-  }
-  // model->getGraph()
-
+ }
 }
 
 void Drone::setDirection(Vector3 dir_){
@@ -187,8 +177,6 @@ void Drone::setDirection(Vector3 dir_){
 
 
   DataCollection* instance = DataCollection::getInstance(); 
-
-  std::printf("--------Drone does some sort of rotate-------");
 
   if(angle <= 3.1415926535){
     instance->turnRight();
