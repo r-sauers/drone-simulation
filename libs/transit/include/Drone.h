@@ -71,6 +71,13 @@ class Drone : public IEntity {
   bool getAtStation();
 
   /**
+   * @brief Gets the status of the drone that states whether its moving, carrying or charging
+   * not
+   * @return The status of the drone that states whether its moving, carrying or charging
+   */
+  int getMoveStatus();
+
+  /**
    * @brief Sets the status of the drone that states whether its at a station or
    * not
    * @param atStation the new status of the drone that states whether its at a
@@ -90,7 +97,8 @@ class Drone : public IEntity {
    */
   Drone& operator=(const Drone& drone) = delete;
 
-  //  private:
+  //  private
+  int moveStatus = 0;
   bool available = false;
   bool pickedUp = false;
   bool seekingCharge = false;

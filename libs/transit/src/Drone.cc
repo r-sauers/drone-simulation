@@ -99,7 +99,7 @@ void Drone::update(double dt) {
 
     Vector3 chargeDestination = model->chargeStations.back()->getPosition();
 
-    toCharge = new AstarStrategy(position, chargeDestination);
+    toCharge = new AstarStrategy(position, chargeDestination, model->getGraph());
     moveStatus = 1;
   }
 
@@ -150,6 +150,9 @@ void Drone::update(double dt) {
         moveStatus = 0;
       }
     }
+    else {
+      moveStatus = 0;
+    }
   }
   DataCollection* instance = DataCollection::getInstance(); 
   if(currentStrategy != instance->getLastStrategy()){
@@ -195,5 +198,5 @@ void Drone::setAtStation(bool atStation) {
 }
 
 int Drone::getMoveStatus() {
-  return moveStatus;
+  return this->moveStatus;
 }

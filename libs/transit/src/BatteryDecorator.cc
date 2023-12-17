@@ -39,8 +39,15 @@ void BatteryDecorator::update(double dt) {
     }
   } else {
     if (this->batteryPower > 0) {
-      this->batteryPower -= dt;  // Drains over 100 seconds
-
+      if (this->drone->getMoveStatus() == 2) {
+        this->batteryPower -= dt * 2; // Carrying Package, Drains over 50 seconds
+      }
+      else if (this->drone->getMoveStatus() == 1) {
+        this->batteryPower -= dt;  // Active, Drains over 100 seconds
+      }
+      else if (this->drone->getMoveStatus() == 0) {
+        this->batteryPower -= dt / 2.0; // Idle, drains over 200 seconds
+      }
     } else {
       if (this->drone->getSeekingCharge() == false &&
           this->drone->getAtStation() ==
@@ -57,8 +64,14 @@ void BatteryDecorator::update(double dt) {
     }
 
     drone->update(dt);
-    DataCollection* instance = DataCollection::getInstance(); 
-    instance->getBatteryLevel(this->batteryPower);
+
+    counter += dt;
+    if(counter >= 1) { // Write Battery level every one second
+      counter = 0;
+      DataCollection* instance = DataCollection::getInstance(); 
+      instance->getBatteryLevel(this->batteryPower);
+    }
+    
     this->setPosition(this->drone->getPosition());
   }
 }
