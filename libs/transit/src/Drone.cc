@@ -125,6 +125,7 @@ void Drone::update(double dt) {
         toPackage = nullptr;
         pickedUp = true;
         moveStatus = 2;
+        currentStrategy = futureStrategy;
       }
     } else if (toFinalDestination) {
       toFinalDestination->move(this, dt);
