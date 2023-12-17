@@ -110,5 +110,6 @@ While the efficiency for Dijkstra was driven by its close proximity to the charg
 
 ### Left Vs Right Turns
 ![turns](https://media.github.umn.edu/user/22463/files/f10f1157-6ce7-450f-93e0-b04f72726227)
+Update: This diagram reversed right and left turns.
 
-While all are relatively similar, the most battery efficient algorithm in this case was the one that used the most right turns.
+While all are relatively similar, the most battery efficient algorithm in this case was the one that used the most left turns.
