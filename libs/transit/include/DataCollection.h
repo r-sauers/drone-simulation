@@ -12,7 +12,7 @@
 class DataCollection {
  public:
 
-   static DataCollection& getInstance();
+   static DataCollection* getInstance();
    
    void turnRight();
    void turnLeft();
@@ -31,7 +31,7 @@ class DataCollection {
    DataCollection(const DataCollection&) = delete;
    DataCollection& operator=(const DataCollection&) = delete;
    
-    static DataCollection* instance = nullptr;
+   static DataCollection* instance;
     int rightTurns = 0;
     int leftTurns = 0;
     std::string lastStrategy;

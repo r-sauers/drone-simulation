@@ -3,8 +3,10 @@
 #include <iostream>
 #include <fstream>
 
-DataCollection& DataCollection::getInstance(){
-    if (instance == nullptr) {
+DataCollection* DataCollection::instance = nullptr;
+
+DataCollection* DataCollection::getInstance(){
+    if(instance == nullptr){
         instance = new DataCollection();
     }
     return instance;
@@ -15,10 +17,7 @@ DataCollection::DataCollection(){
 }
 
 DataCollection::~DataCollection(){
-    if(instance != nullptr){
-        delete instance;
-        instance = nullptr;
-    }
+    
 }
 
 void DataCollection::turnRight(){
@@ -60,7 +59,7 @@ void DataCollection::getDronePath(std::vector<float> start, std::vector<float> e
 void DataCollection::writeStrategysToCSV(){
     std::ofstream outputFile(csvFilename);
 
-    if(!outputFile.is_open()){    static DataCollection instance;
+    if(!outputFile.is_open()){
 
         std::cerr << "Error Opening csv file" << std::endl;
     }

@@ -44,10 +44,14 @@ void Drone::getNextDelivery() {
       Vector3 finalDestination = package->getDestination();
 
       currentStrategy = "beeline";
+      DataCollection* instance = DataCollection::getInstance(); 
+      instance->resetTurns();
       toPackage = new BeelineStrategy(position, packagePosition);
 
       std::string strat = package->getStrategyName();
-      currentStrategy = "strat";
+      currentStrategy = strat;
+      instance = DataCollection::getInstance(); 
+      instance->resetTurns();
       if (strat == "astar") {
         toFinalDestination =
           new JumpDecorator(
@@ -138,13 +142,28 @@ void Drone::update(double dt) {
       }
     }
   }
-
-  // if(currentStrategy != DataCollection::getLastStrategy()){
-  //   DataCollection::getStrategy(currentStrategy);
-  // }
-  //model->getGraph()
+  DataCollection* instance = DataCollection::getInstance(); 
+  if(currentStrategy != instance->getLastStrategy()){
+    instance->getStrategy(currentStrategy);
+  }
+  // model->getGraph()
 
 }
+
+void Drone::rotate(double angle){
+  Vector3 dirTmp = direction;
+  direction.x = dirTmp.x * std::cos(angle) - dirTmp.z * std::sin(angle);
+  direction.z = dirTmp.x * std::sin(angle) + dirTmp.z * std::cos(angle);
+
+  DataCollection* instance = DataCollection::getInstance(); 
+
+  if(angle >= 180.0){
+    instance->turnRight();
+  }else{
+    instance->turnLeft();
+  }
+}
+
 
 int Drone::getID() {
   return id;

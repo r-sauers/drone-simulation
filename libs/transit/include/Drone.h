@@ -43,6 +43,8 @@ class Drone : public IEntity {
    */
   void update(double dt);
 
+  void rotate(double angle);
+
   /**
    * @brief Gets the ID of the drone
    * @return The ID of the drone
