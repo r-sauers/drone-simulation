@@ -47,6 +47,7 @@ class BatteryDecorator : public Drone {
   int charging = 0;
   int linked = 0;
   IStrategy* movement = nullptr;
+  double counter = 0;
 };
 
 #endif

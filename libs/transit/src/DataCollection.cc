@@ -45,6 +45,18 @@ std::string DataCollection::getLastStrategy(){
 
 void DataCollection::getBatteryLevel(double batteryL){
     batteryLevel.push_back(batteryL);
+    if (batteryLevel.size() == 10){
+        std::fstream outputFile;
+        outputFile.open("batteryData.csv", std::ios_base::app);
+        for (int i = 0; i < 10; i++) {
+            outputFile << batteryLevel.at(i);
+            outputFile << ", ";
+        }
+        outputFile << "\n";
+        std::printf("Printed to file\n");
+        outputFile.close();
+        batteryLevel.clear();
+    }
 }
 
 void DataCollection::getStrategy(std::string strategy){
