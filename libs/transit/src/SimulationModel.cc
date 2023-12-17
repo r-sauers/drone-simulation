@@ -6,6 +6,7 @@
 #include "HumanFactory.h"
 #include "PackageFactory.h"
 #include "RobotFactory.h"
+#include "DataCollection.h"
 
 SimulationModel::SimulationModel(IController& controller)
     : controller(controller) {
@@ -23,6 +24,12 @@ SimulationModel::~SimulationModel() {
     delete entity;
   }
   delete graph;
+
+  DataCollection* instance = DataCollection::getInstance();
+
+  instance->writeBatteryToCSV();
+  instance->writeStrategysToCSV();
+
 }
 
 IEntity* SimulationModel::createEntity(JsonObject& entity) {

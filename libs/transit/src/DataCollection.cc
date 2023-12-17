@@ -57,6 +57,9 @@ void DataCollection::getDronePath(std::vector<float> start, std::vector<float> e
 }
 
 void DataCollection::writeStrategysToCSV(){
+
+    std::printf("writestrat called");
+
     std::ofstream outputFile(csvFilename);
 
     if(!outputFile.is_open()){
@@ -73,6 +76,9 @@ void DataCollection::writeStrategysToCSV(){
 }
 
 void DataCollection::writeBatteryToCSV(){
+
+    std::printf("writeBattery called");
+
     std::ofstream outputFile(csvFilename2);
 
     if(!outputFile.is_open()){

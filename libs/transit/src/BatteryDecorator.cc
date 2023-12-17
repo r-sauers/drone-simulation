@@ -57,7 +57,8 @@ void BatteryDecorator::update(double dt) {
     }
 
     drone->update(dt);
-    //DataCollection::getBatteryLevel(this->batteryPower);
+    DataCollection* instance = DataCollection::getInstance(); 
+    instance->getBatteryLevel(this->batteryPower);
     this->setPosition(this->drone->getPosition());
   }
 }
