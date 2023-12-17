@@ -27,7 +27,7 @@ void BatteryDecorator::update(double dt) {
     this->station = this->model->chargeStations.back();
   }
 
-  std::cout << "Battery Power: " << this->batteryPower << std::endl;
+  
   if (this->charging) {
     this->batteryPower += dt * 20;  // Charges over 5 seconds
     if (this->batteryPower >= 100) {
@@ -40,10 +40,10 @@ void BatteryDecorator::update(double dt) {
   } else {
     if (this->batteryPower > 0) {
       if (this->drone->getMoveStatus() == 2) {
-        this->batteryPower -= dt * 2; // Carrying Package, Drains over 50 seconds
+        this->batteryPower -= dt; // Carrying Package, Drains over 100 seconds
       }
       else if (this->drone->getMoveStatus() == 1) {
-        this->batteryPower -= dt;  // Active, Drains over 100 seconds
+        this->batteryPower -= dt / 1.5;  // Active, Drains over 150 seconds
       }
       else if (this->drone->getMoveStatus() == 0) {
         this->batteryPower -= dt / 2.0; // Idle, drains over 200 seconds
@@ -66,10 +66,11 @@ void BatteryDecorator::update(double dt) {
     drone->update(dt);
 
     counter += dt;
-    if(counter >= 1) { // Write Battery level every one second
+    if(counter >= 5) { // Write Battery level every one second
       counter = 0;
       DataCollection* instance = DataCollection::getInstance(); 
       instance->getBatteryLevel(this->batteryPower);
+      std::cout << "Battery Power: " << this->batteryPower << std::endl;
     }
     
     this->setPosition(this->drone->getPosition());

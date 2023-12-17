@@ -95,7 +95,7 @@ void Drone::getNextDelivery() {
 
 void Drone::update(double dt) {
   if (seekingCharge && !toCharge && !atStation) {
-    available = false;
+    
 
     Vector3 chargeDestination = model->chargeStations.back()->getPosition();
 
@@ -111,9 +111,9 @@ void Drone::update(double dt) {
     if (toCharge->isCompleted()) {
       delete toCharge;
       toCharge = nullptr;
-      available = true;
+      pickedUp = false;
       atStation = true;
-      moveStatus = 3;
+      moveStatus = 0;
     }
   }
   else {
@@ -133,6 +133,10 @@ void Drone::update(double dt) {
     } else if (toFinalDestination) {
       toFinalDestination->move(this, dt);
       moveStatus = 2;
+      if (!pickedUp && (abs(position.x - package->getPosition().x) < 50) && (abs(position.z - package->getPosition().z) < 50)) {
+        pickedUp = true;
+      }
+      //std::printf("Drone X: %f Package X: %f Drone Z: %f Package Z: %f\n", position.x, package->getPosition().x, position.z, package->getPosition().z);
 
       if (package && pickedUp) {
         package->setPosition(position);
