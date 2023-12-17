@@ -93,3 +93,22 @@ This sprint started off as more of the same from sprint one, as the issues with 
 
 ### Singleton Data Collection
 
+## Data Analysis
+All data was gathered from performing the same delivery route with the different pathing algorithms.
+
+![Screenshot 2023-12-17 110736](https://media.github.umn.edu/user/22463/files/a00a03bd-8872-4edc-9bff-ed10e65a44ed)
+
+### Battery Usage
+![Battery](https://media.github.umn.edu/user/22463/files/80b9bb7f-4bc7-4f7e-b944-a153c5d05dbe)
+
+Astar's less use of battery in general is a good indicator that it spends more time idle or travelling to the package than carrying it, which allows it to save on battery usage. Its also worth noting that Dijkstra was able to complete its route in one less charge. Finally, the DFS algorithm tended to bring it farther away from the charging station, which is why you see it spend more time at zero, and less time in delivery.
+
+### Time Efficiency
+![Delivery Time](https://media.github.umn.edu/user/22463/files/ce9cdeda-8d01-436b-bedd-8c5c13c1a334)
+
+While the efficiency for Dijkstra was driven by its close proximity to the charging station in this test, each of these algorithms likely have a strength for specific situations. DFS could be much better at finding longer routes, and Astar may be better at handling more routes due to its efficient battery usage.
+
+### Left Vs Right Turns
+![turns](https://media.github.umn.edu/user/22463/files/f10f1157-6ce7-450f-93e0-b04f72726227)
+
+While all are relatively similar, the most efficient algorithm in this case was the one that used the most right turns.
