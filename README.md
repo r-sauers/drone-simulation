@@ -84,8 +84,7 @@ This sprint started off as more of the same from sprint one, as the issues with 
 
 
 ## YouTube Presentation Overview Link: 
-(TODO: Paste link to YouTube presentation here)
-
+https://youtu.be/XHBpCvUJ_Q4
 
 ## UML Diagrams:
 ### Battery Decorator
