@@ -1,12 +1,13 @@
 #include "SimulationModel.h"
+
 #include "BatteryDecorator.h"
 #include "ChargeStationFactory.h"
+#include "DataCollection.h"
 #include "DroneFactory.h"
 #include "HelicopterFactory.h"
 #include "HumanFactory.h"
 #include "PackageFactory.h"
 #include "RobotFactory.h"
-#include "DataCollection.h"
 
 SimulationModel::SimulationModel(IController& controller)
     : controller(controller) {
@@ -27,9 +28,9 @@ SimulationModel::~SimulationModel() {
 
   DataCollection* instance = DataCollection::getInstance();
   instance->resetTurns();
-  instance->writeBatteryToCSV();
+  // instance->writeBatteryToCSV();
   instance->writeStrategysToCSV();
-
+  instance->writeTimeToCSV();
 }
 
 IEntity* SimulationModel::createEntity(JsonObject& entity) {
@@ -109,6 +110,8 @@ void SimulationModel::update(double dt) {
     removeFromSim(id);
   }
   removed.clear();
+  DataCollection* instance = DataCollection::getInstance();
+  instance->addTotalTime(dt);
 }
 
 void SimulationModel::stop(void) { controller.stop(); }
