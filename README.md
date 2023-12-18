@@ -91,6 +91,7 @@ https://youtu.be/XHBpCvUJ_Q4
 ![BatteryDecorator (1)](https://media.github.umn.edu/user/22463/files/13d4b7d6-9fa9-4583-902a-25e2f31479ff)
 
 ### Singleton Data Collection
+![CSCI3081 Canvas](https://media.github.umn.edu/user/22273/files/a3ebaf89-aa94-4310-99c4-0a9ac4035b7e)
 
 ## Data Analysis
 All data was gathered from performing the same delivery route with the different pathing algorithms.
