@@ -61,9 +61,8 @@ Additionally, there is a singleton data collection class that runs in the backgr
  - Then, in a browser, go to "http://127.0.0.1:<port_number>" to view the simulation, and "http://127.0.0.1:<port_number>/schedule.html" to schedule deliveries
 #### With Dockerfile (Link Below):
  - Assuming that Docker is already installed and working, the first step is to open a terminal and run "docker login"
- - Then, run "docker run --rm -it -p 8081:8081 (TODO: Input name of our docker file)"
+ - Then, run "docker run --rm -it -p 8081:8081 jacoblopez1/csci3081hw4"
  - Then, in a browser, go to "http://127.0.0.1:8081" to view the simulation, and "http://127.0.0.1:8081/schedule.html" to schedule deliveries
-
 
 ## New Features:
 #### Battery Decorator Class/Charging Station:
@@ -80,7 +79,7 @@ This sprint started off as more of the same from sprint one, as the issues with 
 
 
 ## Dockerfile Link: 
-(TODO: Paste link to Dockerfile on Dockerhub here)
+https://hub.docker.com/repository/docker/jacoblopez1/csci3081hw4/general
 
 
 ## YouTube Presentation Overview Link: 
