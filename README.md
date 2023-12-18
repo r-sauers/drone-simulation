@@ -108,7 +108,6 @@ Astar's less use of battery in general is a good indicator that it spends more t
 While the efficiency for Dijkstra was driven by its close proximity to the charging station in this test, each of these algorithms likely have a strength for specific situations. DFS could be much better at finding longer routes, and Astar may be better at handling more routes due to its efficient battery usage.
 
 ### Left Vs Right Turns
-![turns](https://media.github.umn.edu/user/22463/files/f10f1157-6ce7-450f-93e0-b04f72726227)
-Update: This diagram reversed right and left turns.
+![turns_revised](https://media.github.umn.edu/user/22463/files/a3d1c6ec-d1f7-43eb-9e2e-88b7d8b5b710)
 
 While all are relatively similar, the most battery efficient algorithm in this case was the one that used the most left turns.
