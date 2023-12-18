@@ -80,24 +80,6 @@ void DataCollection::writeStrategysToCSV() {
   outputFile.close();
 }
 
-void DataCollection::writeBatteryToCSV() {
-
-  std::ofstream outputFile(csvFilename2);
-
-  if (!outputFile.is_open()) {
-    std::cerr << "Error Opening csv file" << std::endl;
-  }
-
-  for (int i : batteryLevel) {
-    outputFile << batteryLevel[i];
-    if (i < batteryLevel.size() - 1) {
-      outputFile << ", ";
-    }
-  }
-
-  outputFile.close();
-}
-
 void DataCollection::writeTimeToCSV() {
   std::ofstream outputFile("timeData.csv");
   if (!outputFile.is_open()) {

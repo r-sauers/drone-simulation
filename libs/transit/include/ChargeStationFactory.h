@@ -1,5 +1,5 @@
-#ifndef CHARGE_STATION_FACTORY_H_
-#define CHARGE_STATION_FACTORY_H_
+#ifndef CHARGESTATION_FACTORY_H_
+#define CHARGESTATION_FACTORY_H_
 
 #include <vector>
 
@@ -25,4 +25,4 @@ class ChargeStationFactory : public IEntityFactory {
   IEntity* CreateEntity(JsonObject& entity);
 };
 
-#endif
+#endif // CHARGESTATION_FACTORY_H_

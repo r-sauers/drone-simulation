@@ -25,4 +25,4 @@ class DroneFactory : public IEntityFactory {
   IEntity* CreateEntity(JsonObject& entity);
 };
 
-#endif
+#endif // DRONE_FACTORY_H_

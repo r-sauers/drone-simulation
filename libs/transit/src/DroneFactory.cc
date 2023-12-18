@@ -1,4 +1,5 @@
 #include "DroneFactory.h"
+
 #include "BatteryDecorator.h"
 
 IEntity* DroneFactory::CreateEntity(JsonObject& entity) {

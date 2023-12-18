@@ -1,10 +1,11 @@
 #define _USE_MATH_DEFINES
 
+#include "ChargeStation.h"
+
 #include <cmath>
 #include <cstdlib>
 #include <limits>
 
-#include "ChargeStation.h"
 #include "Package.h"
 #include "SimulationModel.h"
 

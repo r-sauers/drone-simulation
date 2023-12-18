@@ -23,4 +23,4 @@ class IEntityFactory {
   virtual IEntity* CreateEntity(JsonObject& entity) = 0;
 };
 
-#endif
+#endif // I_ENTITY_FACTORY_H_

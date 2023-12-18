@@ -1,5 +1,5 @@
-#ifndef BEELINE_H_
-#define BEELINE_H_
+#ifndef BEELINE_STRATEGY_H_
+#define BEELINE_STRATEGY_H_
 
 #include "PathStrategy.h"
 
@@ -18,4 +18,4 @@ class BeelineStrategy : public PathStrategy {
   BeelineStrategy(Vector3 pos, Vector3 des);
 };
 
-#endif  // BEELINE_H_
+#endif  // BEELINE_STRATEGY_H_

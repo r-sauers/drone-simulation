@@ -81,13 +81,6 @@ class SimulationModel {
    */
   const routing::IGraph* getGraph();
 
-  // /**
-  //  * @brief Returns the battery levels of all the Drone Entities in the Model
-  //  *
-  //  * @returns JsonObject json of drone id's and battery level
-  // */
-  // const JsonObject getBatteryLevels();
-
   std::deque<Package*> scheduledDeliveries;
 
   std::vector<ChargeStation*> chargeStations;
@@ -101,4 +94,4 @@ class SimulationModel {
   CompositeFactory entityFactory;
 };
 
-#endif
+#endif // SIMULATION_MODEL_H_

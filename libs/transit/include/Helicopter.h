@@ -1,5 +1,5 @@
-#ifndef Helicopter_H_
-#define Helicopter_H_
+#ifndef HELICOPTER_H_
+#define HELICOPTER_H_
 
 #include "IEntity.h"
 #include "IStrategy.h"
@@ -12,12 +12,20 @@ class Helicopter : public IEntity {
    */
   Helicopter(JsonObject& obj);
 
+  /**
+   * @brief Helicopter destructor
+   */
   ~Helicopter();
 
+  /**
+   * @brief Helicopters move towards the destination, or select a new random
+   * destination if the previous destination has been reached
+   * @param dt Time change since last update
+   */
   void update(double dt);
 
  private:
   IStrategy* movement = nullptr;
 };
 
-#endif
+#endif // HELICOPTER_H_

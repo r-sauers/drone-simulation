@@ -113,4 +113,4 @@ class Drone : public IEntity {
   std::string futureStrategy;
 };
 
-#endif
+#endif // DRONE_H_

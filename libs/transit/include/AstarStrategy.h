@@ -20,4 +20,5 @@ class AstarStrategy : public PathStrategy {
   AstarStrategy(Vector3 position, Vector3 destination,
                 const routing::IGraph* graph);
 };
+
 #endif  // ASTAR_STRATEGY_H_

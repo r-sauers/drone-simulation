@@ -50,4 +50,4 @@ class BatteryDecorator : public Drone {
   double counter = 0;
 };
 
-#endif
+#endif // BATTERY_DECORATOR_H_

@@ -12,12 +12,20 @@ class Human : public IEntity {
    */
   Human(JsonObject& obj);
 
+  /**
+   * @brief Human destructor
+   */
   ~Human();
 
+  /**
+   * @brief Human move towards the destination, or select a new random
+   * destination if the previous destination has been reached
+   * @param dt Time change since the last update
+   */
   void update(double dt);
 
  private:
   IStrategy* movement = nullptr;
 };
 
-#endif
+#endif // HUMAN_H_

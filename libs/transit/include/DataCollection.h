@@ -67,11 +67,6 @@ class DataCollection {
   void writeStrategysToCSV();
 
   /**
-   * @brief Writes the battery data to the batteryData CSV file
-   */
-  void writeBatteryToCSV();
-
-  /**
    * @brief Writes the time data to the timeData CSV file
    */
   void writeTimeToCSV();
@@ -83,7 +78,7 @@ class DataCollection {
   void addTotalTime(double dt);
 
   /**
-   * @brief Adds the times to the 
+   * @brief Adds the current strategy time to the timeTaken vector
   */
   void pushTimes();
    
@@ -126,4 +121,4 @@ class DataCollection {
   std::string csvFilename2 = "batteryData.csv";
 };
 
-#endif
+#endif // DATA_COLLECTION_H_

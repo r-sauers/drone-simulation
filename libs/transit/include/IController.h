@@ -57,4 +57,4 @@ class IController {
   virtual bool isAlive(void) = 0;
 };
 
-#endif
+#endif // CONTROLLER_H_

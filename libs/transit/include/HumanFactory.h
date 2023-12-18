@@ -25,4 +25,4 @@ class HumanFactory : public IEntityFactory {
   IEntity* CreateEntity(JsonObject& entity);
 };
 
-#endif
+#endif //HUMAN_FACTORY_H_

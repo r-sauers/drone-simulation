@@ -20,4 +20,5 @@ class BfsStrategy : public PathStrategy {
   BfsStrategy(Vector3 position, Vector3 destination,
               const routing::IGraph* graph);
 };
+
 #endif  // BFS_STRATEGY_H_

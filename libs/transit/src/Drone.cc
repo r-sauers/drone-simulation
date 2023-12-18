@@ -1,4 +1,5 @@
 #define _USE_MATH_DEFINES
+
 #include "Drone.h"
 
 #include <cmath>
@@ -6,8 +7,8 @@
 
 #include "AstarStrategy.h"
 #include "BeelineStrategy.h"
-#include "DfsStrategy.h"
 #include "BfsStrategy.h"
+#include "DfsStrategy.h"
 #include "DijkstraStrategy.h"
 #include "JumpDecorator.h"
 #include "SpinDecorator.h"

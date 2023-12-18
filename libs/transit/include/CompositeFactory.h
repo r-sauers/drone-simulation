@@ -31,4 +31,4 @@ class CompositeFactory : public IEntityFactory {
   std::vector<IEntityFactory*> componentFactories;
 };
 
-#endif
+#endif // COMPOSITE_FACTORY_H_

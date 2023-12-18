@@ -1,4 +1,5 @@
 #include "BatteryDecorator.h"
+
 #include "BeelineStrategy.h"
 #include "SimulationModel.h"
 #include "DataCollection.h"

@@ -25,4 +25,4 @@ class RobotFactory : public IEntityFactory {
   IEntity* CreateEntity(JsonObject& entity);
 };
 
-#endif
+#endif // ROBOT_FACTORY_H_

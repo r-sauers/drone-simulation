@@ -53,4 +53,4 @@ class ChargeStation : public IEntity {
   int dockedDrone;  // The current drone that is at the chargestation, if any
 };
 
-#endif
+#endif // CHARGESTATION_H_

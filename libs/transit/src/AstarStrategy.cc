@@ -1,4 +1,5 @@
 #include "AstarStrategy.h"
+
 #include "routing/astar.h"
 
 AstarStrategy::AstarStrategy(Vector3 pos, Vector3 des,

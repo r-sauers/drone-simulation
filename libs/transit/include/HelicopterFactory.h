@@ -1,5 +1,5 @@
-#ifndef Helicopter_FACTORY_H_
-#define Helicopter_FACTORY_H_
+#ifndef HELICOPTER_FACTORY_H_
+#define HELICOPTER_FACTORY_H_
 
 #include <vector>
 
@@ -25,4 +25,4 @@ class HelicopterFactory : public IEntityFactory {
   IEntity* CreateEntity(JsonObject& entity);
 };
 
-#endif
+#endif // HELICOPTER_FACTORY_H_

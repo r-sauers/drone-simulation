@@ -25,4 +25,4 @@ class IStrategy {
   virtual bool isCompleted() = 0;
 };
 
-#endif
+#endif // I_STRATEGY_H_

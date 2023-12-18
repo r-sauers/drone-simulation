@@ -131,4 +131,4 @@ class IEntity {
   double speed = 0;
 };
 
-#endif
+#endif // ENTITY_H_

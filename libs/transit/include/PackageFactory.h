@@ -25,4 +25,4 @@ class PackageFactory : public IEntityFactory {
   IEntity* CreateEntity(JsonObject& entity);
 };
 
-#endif
+#endif // PACKAGE_FACTORY_H_

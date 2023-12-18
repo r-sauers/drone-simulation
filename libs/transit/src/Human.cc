@@ -1,9 +1,10 @@
 #define _USE_MATH_DEFINES
 
+#include "Human.h"
+
 #include <cmath>
 #include <limits>
 
-#include "Human.h"
 #include "AstarStrategy.h"
 #include "SimulationModel.h"
 
