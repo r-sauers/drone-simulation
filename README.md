@@ -1,11 +1,4 @@
-# Team 010-40
-
-## Members:
- - Jacob Lopez (lope0384)
- - Ryan Sauers (sauer319)
- - Evan Burkstrand (burks079)
- - Harrison Wallander (walla875)
-
+# Drone Simulation
 
 ## Project Overview:
 This project is centered around upgrading a drone delivery simulation with specific design patterns, documentation, new entities, and whole new features. The main goal of this project is to teach how to plan out, implement, and engage with various design patterns, development processes, and general programming best practices. Specifically, it involved the implementing the following on top of already existing base code for a basic delivery drone simulation:
@@ -111,3 +104,9 @@ While the efficiency for Dijkstra was driven by its close proximity to the charg
 ![turns_revised](https://media.github.umn.edu/user/22463/files/a3d1c6ec-d1f7-43eb-9e2e-88b7d8b5b710)
 
 While all are relatively similar, the most battery efficient algorithm in this case was the one that used the most left turns.
+
+## Developers:
+ - Jacob Lopez (lope0384)
+ - Ryan Sauers (sauer319)
+ - Evan Burkstrand (burks079)
+ - Harrison Wallander (walla875)
