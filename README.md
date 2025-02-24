@@ -1,4 +1,4 @@
-# Drone Simulation
+# Drone Package-Delivery Simulation
 
 ## Project Overview:
 This project is centered around upgrading a drone delivery simulation with specific design patterns, documentation, new entities, and whole new features. The main goal of this project is to teach how to plan out, implement, and engage with various design patterns, development processes, and general programming best practices. Specifically, it involved the implementing the following on top of already existing base code for a basic delivery drone simulation:
@@ -13,7 +13,20 @@ This project is centered around upgrading a drone delivery simulation with speci
  - Adding an "Stop Simulation" button
  - Doxygen documentation to all relevant source header class files
  - Google code styling for all relevant source files
- 
+
+## Features
+
+### Start a Package Delivery
+![](https://github.com/r-sauers/drone-simulation/blob/main/readme-images/Screenshot%20from%202025-02-24%2012-58-16.png)
+
+### Watch the drone pick up the package!
+![](https://github.com/r-sauers/drone-simulation/blob/main/readme-images/Screenshot%20from%202025-02-24%2013-01-34.png)
+
+### Watch the drone recharge!
+![](https://github.com/r-sauers/drone-simulation/blob/main/readme-images/Screenshot%20from%202025-02-24%2013-02-03.png)
+
+### Watch the drone deliver the package!
+![](https://github.com/r-sauers/drone-simulation/blob/main/readme-images/Screenshot%20from%202025-02-24%2013-02-28.png)
 
 
 ## What the Simulation Does:
@@ -74,36 +87,8 @@ This sprint started off as more of the same from sprint one, as the issues with 
 ## Dockerfile Link: 
 https://hub.docker.com/repository/docker/jacoblopez1/csci3081hw4/general
 
-
 ## YouTube Presentation Overview Link: 
 https://youtu.be/XHBpCvUJ_Q4
-
-## UML Diagrams:
-### Battery Decorator
-![BatteryDecorator (1)](https://media.github.umn.edu/user/22463/files/13d4b7d6-9fa9-4583-902a-25e2f31479ff)
-
-### Singleton Data Collection
-![CSCI3081 Canvas](https://media.github.umn.edu/user/22273/files/a3ebaf89-aa94-4310-99c4-0a9ac4035b7e)
-
-## Data Analysis
-All data was gathered from performing the same delivery route with the different pathing algorithms.
-
-![Screenshot 2023-12-17 110736](https://media.github.umn.edu/user/22463/files/a00a03bd-8872-4edc-9bff-ed10e65a44ed)
-
-### Battery Usage
-![Battery](https://media.github.umn.edu/user/22463/files/80b9bb7f-4bc7-4f7e-b944-a153c5d05dbe)
-
-Astar's less use of battery in general is a good indicator that it spends more time idle or travelling to the package than carrying it, which allows it to save on battery usage. Its also worth noting that Dijkstra was able to complete its route in one less charge. Finally, the DFS algorithm tended to bring it farther away from the charging station, which is why you see it spend more time at zero, and less time in delivery.
-
-### Time Efficiency
-![Delivery Time](https://media.github.umn.edu/user/22463/files/ce9cdeda-8d01-436b-bedd-8c5c13c1a334)
-
-While the efficiency for Dijkstra was driven by its close proximity to the charging station in this test, each of these algorithms likely have a strength for specific situations. DFS could be much better at finding longer routes, and Astar may be better at handling more routes due to its efficient battery usage.
-
-### Left Vs Right Turns
-![turns_revised](https://media.github.umn.edu/user/22463/files/a3d1c6ec-d1f7-43eb-9e2e-88b7d8b5b710)
-
-While all are relatively similar, the most battery efficient algorithm in this case was the one that used the most left turns.
 
 ## Developers:
  - Jacob Lopez (lope0384)
