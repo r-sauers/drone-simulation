@@ -1,5 +1,11 @@
 # Drone Package-Delivery Simulation
 
+## Dockerfile Link: 
+https://hub.docker.com/repository/docker/jacoblopez1/csci3081hw4/general
+
+## YouTube Presentation Overview Link: 
+https://youtu.be/XHBpCvUJ_Q4
+
 ## Project Overview:
 This project is centered around upgrading a drone delivery simulation with specific design patterns, documentation, new entities, and whole new features. The main goal of this project is to teach how to plan out, implement, and engage with various design patterns, development processes, and general programming best practices. Specifically, it involved the implementing the following on top of already existing base code for a basic delivery drone simulation:
  - Design patterns: 
@@ -82,13 +88,6 @@ The data collection feature runs in the background of the simulation and gathers
 This sprint went quite well at the beginning, but about halfway through, the work slowed down a lot. This slow down has lead to the group being behind on tasks, and the group is now in a crunch to finish the project shortly before it is due, which is abviously not good. This issue can be attributed mainly to a lack of communication and code compatibility. Early on in the sprint, the group was often communicating what was being done, how it was being done, and what concerns were found with the codebase. This allowed for collaboration and for people to help with code that others were struggling to implement, and allowed for easy code integration. This lead to steady progress through the first half of the sprint, with tasks being finished quickly and effectively and on time. Around halfway through the sprint, though, the communication stopped, and the work slowed. This is because people were attempting their tasks, but realizing that other tasks needed to be finished first, so they waited for others to finish their tasks or change their code to work with the implementation others were using. This lead to essentially a deadlock within the group, since no one was making progress besides some small code upgrades and tinkering with upcoming tasks. This major issue occured because the group assumed that the way every member was planning on implementing their tasks was compatible with each other's code from other tasks. This was a false assumption since there are an infinite number of ways to implement the features and tasks that were allocated amongst the group, and there was no realistic way they would all line up without communication beforehand. The obvious solution to this problem was to communicate more, and to collaborate more. This solution can be enacted through synchronous meetings to work on code, which are going to happen during sprint 2, but which did not happen during sprint 1. This solution will allow for questions to be directly asked to group members, and for future implementation conflicts to be worked out quickly without causing larger issues, or slowing down progress significantly. Other than this issue, the sprint went generally well, and the quality of code was high, with relatively few bugs and setbacks, although some of the tasks for sprint 1 were not completed by the end of the sprint, and were pushed on to the backlog of sprint 2.
 #### Sprint 2:
 This sprint started off as more of the same from sprint one, as the issues with communication and integration were still being worked out, but once the sprint 1 issues were fixed, sprint 2 went smoothly. Work was done very effectively in person, and the project was finished, albeit with sigficantly more effort than sprint 1 due to time constraints requiring a lot of work towards the end. The only notable issue the group had was with the code implementation itself, since implementing the singleton class proved quite difficult, and some parts of the other code had to be changed to accommodate it. This issue was addressed during the sprint by asking the group for help, and the singleton class's implementation was figured out quickly. Other than that small issue, the work was steady and everything went well, and all goals were met.
-
-
-## Dockerfile Link: 
-https://hub.docker.com/repository/docker/jacoblopez1/csci3081hw4/general
-
-## YouTube Presentation Overview Link: 
-https://youtu.be/XHBpCvUJ_Q4
 
 ## Developers:
  - Jacob Lopez (lope0384)
